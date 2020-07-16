@@ -4,11 +4,12 @@
   "description": "A Simple Unsplash Gallery",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "build": "npm run build",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "keywords": [],
   "author": "Suraj Sharma",
