@@ -4,6 +4,8 @@ const toJson = require('unsplash-js').toJson;
 const express = require('express');
 const path = require('path');
 
+const app = express();
+
 require('dotenv').config();
 
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -13,8 +15,6 @@ let apikey = process.env.UNSPLASH_API_KEY;
 const unsplash = new Unsplash ({
   accessKey: `${apikey}`,
 });
-
-const app = express();
 
 app.get('/api/photos', (req, res) => {
   unsplash.photos.listPhotos(req.query.start ,req.query.count)
